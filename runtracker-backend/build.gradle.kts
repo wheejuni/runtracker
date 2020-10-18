@@ -54,3 +54,7 @@ tasks.withType<KotlinCompile> {
         jvmTarget = "1.8"
     }
 }
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions {
+    freeCompilerArgs = listOf("-XXLanguage:+InlineClasses")
+}
