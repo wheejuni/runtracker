@@ -31,6 +31,9 @@ class MainApp extends React.Component {
         window.Kakao.Auth.login({
             success: function(authObj) {
                 console.log('login success');
+                this.setState({
+                    auth: authObj
+                });
               },
             fail: function(err) {
               console.log(JSON.stringify(err))
