@@ -7,7 +7,6 @@ class MainApp extends React.Component {
         super(props);
         this.state = {};
         this.setAuthenticationInfo = this.setAuthenticationInfo.bind(this);
-        this.onKakaoLoginPress = this.onKakaoLoginPress.bind(this);
     }
 
     setAuthenticationInfo(authenticationInfo) {
@@ -20,31 +19,10 @@ class MainApp extends React.Component {
         );
     }
 
-    componentDidMount() {
-        window.Kakao.init('d165f64ec65c5acdd68df8798bc3b3e9');
-        let init = window.Kakao.isInitialized();
-
-        console.log(`kakao initialized: ${init}`);
-    }
-
-    onKakaoLoginPress() {
-        window.Kakao.Auth.login({
-            success: function(authObj) {
-                console.log('login success');
-                this.setState({
-                    auth: authObj
-                });
-              },
-            fail: function(err) {
-              console.log(JSON.stringify(err))
-            }
-        })
-    }
-
     render() {
         return(
             this.state.auth == undefined ?
-            <LoginView authFunction={this.setAuthenticationInfo} loginFunction={this.onKakaoLoginPress}/> : <App />
+            <LoginView authFunction={this.setAuthenticationInfo}/> : <App />
         )
     }
 }
