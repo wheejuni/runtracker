@@ -1,6 +1,7 @@
 import React from 'react'
 import LoginView from './view/LoginView';
 import App from './App'
+import MapView from './view/MapView';
 
 class MainApp extends React.Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class MainApp extends React.Component {
             {
                 auth: authenticationInfo
             }, () => {
-                console.log(`${this.state.auth}`)
+                console.log(`${JSON.stringify(this.state.auth.response)}`)
             }
         );
     }
@@ -22,7 +23,7 @@ class MainApp extends React.Component {
     render() {
         return(
             this.state.auth == undefined ?
-            <LoginView authFunction={this.setAuthenticationInfo}/> : <App />
+            <LoginView authFunction={this.setAuthenticationInfo}/> : <MapView />
         )
     }
 }
