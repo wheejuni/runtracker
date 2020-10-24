@@ -1,14 +1,11 @@
 package com.wheejuni.runtracker.application.auth
 
 import com.wheejuni.runtracker.application.view.SocialLoginRequest
-import org.springframework.stereotype.Component
-import org.springframework.web.reactive.function.client.WebClient
+import com.wheejuni.runtracker.domain.SocialUserProperty
+import reactor.core.publisher.Mono
 
-@Component
-class SocialProviderConnector(private val webClient: WebClient) {
+interface SocialProviderConnector<T: SocialUserProperty> {
 
-    fun processSocialAuthRequest(request: SocialLoginRequest) {
-
-    }
-
+    fun supportsRequest(request: SocialLoginRequest): Boolean
+    fun processAuthRequest(request: SocialLoginRequest): Mono<T>
 }
