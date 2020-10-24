@@ -30,6 +30,6 @@ class KakaoUserProperty(
         return User(
                 nickname = getNickname(),
                 credential = Credential(getUserCredential()),
-                loginProvider = SocialProvider.KAKAO)
+                loginProvider = UserInfoProvider.KAKAO)
     }
 }

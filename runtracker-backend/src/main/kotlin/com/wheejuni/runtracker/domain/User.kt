@@ -5,7 +5,7 @@ data class User(
         val nickname: String = "",
         val username: String = "",
         val credential: Credential,
-        val loginProvider: SocialProvider)
+        val loginProvider: UserInfoProvider)
 
 inline class Credential (private val credentialToken: String) {
     fun matches(loginRequestedPassword: String): Boolean = credentialToken == loginRequestedPassword

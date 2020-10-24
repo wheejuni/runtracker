@@ -1,0 +1,6 @@
+GET https://kapi.kakao.com/v2/user/me
+Accept: application/json
+Authorization: Bearer qwAh9GQweoRmfJdNSSmrPx24SFZtqR5FtN_BrAopb7gAAAF1WH0mNg
+Content-Type: application/x-www-form-urlencoded;charset=utf-8
+
+###
