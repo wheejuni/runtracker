@@ -10,6 +10,6 @@ class SocialPropertyFetchService(
         private val connectors: List<SocialProviderConnector<out SocialUserProperty>>) {
 
     fun retrieveSocialProperties(request: SocialLoginRequest): Mono<out SocialUserProperty> {
-        return connectors.filter { it.supportsRequest(request) }.first().processAuthRequest(request)
+        return connectors.first { it.supportsRequest(request) }.processAuthRequest(request)
     }
 }
