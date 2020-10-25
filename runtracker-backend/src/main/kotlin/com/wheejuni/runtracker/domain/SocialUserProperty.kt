@@ -7,7 +7,6 @@ const val KAKAO_USER_INFO_ENDPOINT = "https://kapi.kakao.com/v2/user/me"
 interface SocialUserProperty {
     fun getNickname(): String
     fun getUserCredential(): String
-    fun toUser(): User
 }
 
 class KakaoUserProperty(
