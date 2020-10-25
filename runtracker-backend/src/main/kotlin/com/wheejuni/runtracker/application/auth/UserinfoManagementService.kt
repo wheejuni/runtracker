@@ -9,6 +9,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Mono
+import reactor.kotlin.core.publisher.switchIfEmpty
 
 val logger: Logger = LoggerFactory.getLogger(UserinfoManagementService::class.java)
 
@@ -39,7 +40,14 @@ class UserinfoManagementService(
                      }
         }
 
-        return Mono.empty()
+        return repository.findByUsername(request.username)
+                .filter { it.credential.matches(request.password) }
+                .switchIfEmpty { Mono.error(AuthenticationNotMatchingException("password incorrect")) }
+                .flatMap { jwtGenerator.toJwt(it) }
+                .map { ApplicationLoginResponse(AUTHENTICATION_SUCCESS_STATUS, it) }
+                .doOnError(AuthenticationNotMatchingException::class.java) {
+                    ApplicationLoginResponse(AUTHENTICATION_USER_FAILURE_STATUS, "")
+                }
     }
 }
 
