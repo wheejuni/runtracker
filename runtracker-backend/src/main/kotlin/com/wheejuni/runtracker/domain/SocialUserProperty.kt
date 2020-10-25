@@ -25,11 +25,4 @@ class KakaoUserProperty(
     override fun getUserCredential(): String {
         return id.toString()
     }
-
-    override fun toUser(): User {
-        return User(
-                nickname = getNickname(),
-                credential = Credential(getUserCredential()),
-                loginProvider = UserInfoProvider.KAKAO)
-    }
 }

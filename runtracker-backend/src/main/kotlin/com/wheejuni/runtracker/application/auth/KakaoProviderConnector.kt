@@ -1,8 +1,7 @@
 package com.wheejuni.runtracker.application.auth
 
-import com.wheejuni.runtracker.application.view.SocialLoginRequest
+import com.wheejuni.runtracker.application.view.ApplicationLoginRequest
 import com.wheejuni.runtracker.domain.KakaoUserProperty
-import com.wheejuni.runtracker.domain.SocialUserProperty
 import com.wheejuni.runtracker.domain.UserInfoProvider
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
@@ -11,9 +10,9 @@ import reactor.core.publisher.Mono
 @Component
 class KakaoProviderConnector(private val webClient: WebClient): SocialProviderConnector<KakaoUserProperty> {
 
-    override fun supportsRequest(request: SocialLoginRequest) = request.provider == UserInfoProvider.KAKAO
+    override fun supportsRequest(request: ApplicationLoginRequest) = request.provider == UserInfoProvider.KAKAO
 
-    override fun processAuthRequest(request: SocialLoginRequest): Mono<KakaoUserProperty> {
+    override fun processAuthRequest(request: ApplicationLoginRequest): Mono<KakaoUserProperty> {
         return webClient.get()
                 .uri(request.provider.userinfoEndpoint)
                 .header("Content-Type")

@@ -11,8 +11,4 @@ import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories
 @EnableR2dbcRepositories
 class DatasourceConfiguration(@Qualifier("connectionFactory") private val connectionFactory: ConnectionFactory) {
 
-    @Bean
-    fun getDatabaseClient(): DatabaseClient {
-        return DatabaseClient.create(connectionFactory)
-    }
 }
