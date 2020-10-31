@@ -11,6 +11,6 @@ class SocialAuthenticationManager(
         private val service: UserinfoManagementService): ReactiveAuthenticationManager {
 
     override fun authenticate(authentication: Authentication?): Mono<Authentication> {
-
+        return Mono.empty()
     }
 }

@@ -1,4 +1,4 @@
-package com.wheejuni.runtracker.infra.auth;
+package com.wheejuni.runtracker.application.auth.token;
 
 import com.wheejuni.runtracker.domain.User;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
