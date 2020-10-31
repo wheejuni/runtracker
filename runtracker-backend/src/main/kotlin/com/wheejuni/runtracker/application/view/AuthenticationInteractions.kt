@@ -6,7 +6,10 @@ data class ApplicationLoginRequest(
         val username: String,
         val password: String,
         val provider: UserInfoProvider,
-        val accessToken: String)
+        val accessToken: String) {
+
+    fun isFormLoginRequest(): Boolean = username.isNotEmpty() && password.isNotEmpty()
+}
 
 data class ApplicationLoginResponse(
         val status: Int,

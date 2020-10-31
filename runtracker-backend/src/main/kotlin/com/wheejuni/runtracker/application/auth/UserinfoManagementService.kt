@@ -3,6 +3,7 @@ package com.wheejuni.runtracker.application.auth
 import com.wheejuni.runtracker.application.auth.token.UserinfoJwtGenerator
 import com.wheejuni.runtracker.application.view.ApplicationLoginRequest
 import com.wheejuni.runtracker.application.view.ApplicationLoginResponse
+import com.wheejuni.runtracker.domain.User
 import com.wheejuni.runtracker.domain.UserInfoProvider
 import com.wheejuni.runtracker.domain.UserRepository
 import org.slf4j.Logger
@@ -20,34 +21,25 @@ const val AUTHENTICATION_INTERNAL_ERROR_STATUS = 500
 @Service
 class UserinfoManagementService(
         private val fetchService: SocialPropertyFetchService,
-        private val repository: UserRepository,
-        private val jwtGenerator: UserinfoJwtGenerator) {
+        private val repository: UserRepository) {
 
-    fun processLoginRequest(request: ApplicationLoginRequest): Mono<ApplicationLoginResponse> {
+    fun processLoginRequest(request: ApplicationLoginRequest): Mono<User> {
         if(request.provider != UserInfoProvider.FORM_LOGIN) {
              return fetchService.retrieveSocialProperties(request)
                      .map { it.getUserCredential() }
                      .flatMap { repository.findBySocialIdentity(it) }
                      .filter { it.isMatchingSocialAuthentication(request.provider) }
                      .switchIfEmpty(Mono.error(AuthenticationNotMatchingException("bad request")))
-                     .flatMap { jwtGenerator.toJwt(it) }
-                     .map { ApplicationLoginResponse(AUTHENTICATION_SUCCESS_STATUS, it) }
                      .doOnError(
                              AuthenticationNotMatchingException::class.java
                      ) {
                          logger.info("invalid login attempt made with social provider: ${request.provider}, accessToken: ${request.accessToken}")
-                         ApplicationLoginResponse(AUTHENTICATION_USER_FAILURE_STATUS, "")
                      }
         }
 
         return repository.findByUsername(request.username)
                 .filter { it.credential.matches(request.password) }
                 .switchIfEmpty { Mono.error(AuthenticationNotMatchingException("password incorrect")) }
-                .flatMap { jwtGenerator.toJwt(it) }
-                .map { ApplicationLoginResponse(AUTHENTICATION_SUCCESS_STATUS, it) }
-                .doOnError(AuthenticationNotMatchingException::class.java) {
-                    ApplicationLoginResponse(AUTHENTICATION_USER_FAILURE_STATUS, "")
-                }
     }
 }
 
