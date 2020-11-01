@@ -1,8 +1,6 @@
 package com.wheejuni.runtracker.application.auth
 
-import com.wheejuni.runtracker.application.auth.token.UserinfoJwtGenerator
 import com.wheejuni.runtracker.application.view.ApplicationLoginRequest
-import com.wheejuni.runtracker.application.view.ApplicationLoginResponse
 import com.wheejuni.runtracker.domain.User
 import com.wheejuni.runtracker.domain.UserInfoProvider
 import com.wheejuni.runtracker.domain.UserRepository
@@ -22,6 +20,8 @@ const val AUTHENTICATION_INTERNAL_ERROR_STATUS = 500
 class UserinfoManagementService(
         private val fetchService: SocialPropertyFetchService,
         private val repository: UserRepository) {
+
+    fun findByUserId(id: Long) : Mono<User> = repository.findById(id)
 
     fun processLoginRequest(request: ApplicationLoginRequest): Mono<User> {
         if(request.provider != UserInfoProvider.FORM_LOGIN) {

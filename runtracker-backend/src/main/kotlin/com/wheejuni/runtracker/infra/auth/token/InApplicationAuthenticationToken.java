@@ -1,18 +1,17 @@
-package com.wheejuni.runtracker.application.auth.token;
+package com.wheejuni.runtracker.infra.auth.token;
 
 import com.wheejuni.runtracker.domain.User;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
+import reactor.core.publisher.Mono;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class InApplicationAuthenticationToken extends AbstractAuthenticationToken {
 
     private Set<? extends GrantedAuthority> authorities;
-    private User userInfoObject;
+    private Mono<User> userInfoObject;
 
     /**
      * Creates a token with the supplied array of authorities.
@@ -22,21 +21,29 @@ public class InApplicationAuthenticationToken extends AbstractAuthenticationToke
      */
     public InApplicationAuthenticationToken(Collection<? extends GrantedAuthority> authorities) {
         super(authorities);
+        super.setAuthenticated(true);
     }
 
-    public InApplicationAuthenticationToken(Set<? extends GrantedAuthority> authorities, User userInfoObject) {
+    public InApplicationAuthenticationToken(Set<? extends GrantedAuthority> authorities, Mono<User> userInfoObject) {
         super(authorities);
+        super.setAuthenticated(true);
+
         this.authorities = authorities;
         this.userInfoObject = userInfoObject;
     }
 
-    @Override
-    public Object getCredentials() {
-        return userInfoObject.getCredential();
+    public InApplicationAuthenticationToken() {
+        super(null);
+        super.setAuthenticated(false);
     }
 
     @Override
-    public User getPrincipal() {
+    public Object getCredentials() {
+        return userInfoObject;
+    }
+
+    @Override
+    public Mono<User> getPrincipal() {
         return userInfoObject;
     }
 }
