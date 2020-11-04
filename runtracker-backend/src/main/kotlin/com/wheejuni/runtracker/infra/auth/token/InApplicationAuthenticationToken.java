@@ -2,6 +2,7 @@ package com.wheejuni.runtracker.infra.auth.token;
 
 import com.wheejuni.runtracker.domain.User;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import reactor.core.publisher.Mono;
 
@@ -10,6 +11,7 @@ import java.util.Set;
 
 public class InApplicationAuthenticationToken extends AbstractAuthenticationToken {
 
+    private String tokenContent;
     private Set<? extends GrantedAuthority> authorities;
     private Mono<User> userInfoObject;
 
@@ -32,18 +34,21 @@ public class InApplicationAuthenticationToken extends AbstractAuthenticationToke
         this.userInfoObject = userInfoObject;
     }
 
-    public InApplicationAuthenticationToken() {
+    public InApplicationAuthenticationToken(String tokenContent) {
         super(null);
         super.setAuthenticated(false);
+
+        this.tokenContent = tokenContent;
     }
 
     @Override
-    public Object getCredentials() {
-        return userInfoObject;
+    public String getCredentials() {
+        return tokenContent;
     }
 
     @Override
     public Mono<User> getPrincipal() {
         return userInfoObject;
     }
+
 }

@@ -48,6 +48,7 @@ public class BaseAuthenticationFilter implements WebFilter, InitializingBean {
                 .filter(ServerWebExchangeMatcher.MatchResult::isMatch)
                 .switchIfEmpty(Mono.error(new UriDoesNotMatchException("")));
 
+
         return null;
     }
 
