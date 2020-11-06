@@ -5,6 +5,8 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.context.ReactiveSecurityContextHolder;
+import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.security.web.server.WebFilterExchange;
 import org.springframework.security.web.server.authentication.ServerAuthenticationConverter;
 import org.springframework.security.web.server.authentication.ServerAuthenticationFailureHandler;
@@ -54,19 +56,29 @@ public class BaseAuthenticationFilter implements WebFilter, InitializingBean {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
-        this.exchangeMatcher.matches(exchange)
+        return this.exchangeMatcher.matches(exchange)
                 .filter(ServerWebExchangeMatcher.MatchResult::isMatch)
                 .flatMap(result -> this.authenticationConverter.convert(exchange))
                 .switchIfEmpty(chain.filter(exchange).then(Mono.empty()))
-                .flatMap(authenticationManager::authenticate)
+                .flatMap(auth -> this.authenticate(auth, exchange, chain))
                 .onErrorResume(AuthenticationException.class, err ->
-                        this.failureHandler.onAuthenticationFailure(new WebFilterExchange(exchange, chain), err))
-
-
-        return null;
+                        this.failureHandler.onAuthenticationFailure(new WebFilterExchange(exchange, chain), err));
     }
 
-    private Mono<Void> authenticate(Authentication token) {
-        return
+    private Mono<Void> authenticate(Authentication token, ServerWebExchange exchange, WebFilterChain chain) {
+        return Mono.just(this.authenticationManager)
+                .flatMap(manager -> manager.authenticate(token))
+                .switchIfEmpty(Mono.defer(() -> Mono.error(new IllegalStateException("No provider found for " + token.getClass()))))
+                .flatMap(auth -> onAuthenticationSuccess(auth, new WebFilterExchange(exchange, chain)));
+    }
+
+    protected Mono<Void> onAuthenticationSuccess(Authentication authentication, WebFilterExchange webFilterExchange) {
+        ServerWebExchange exchange = webFilterExchange.getExchange();
+        SecurityContextImpl securityContext = new SecurityContextImpl();
+        securityContext.setAuthentication(authentication);
+        return this.securityContextRepository.save(exchange, securityContext)
+                .then(this.successHandler
+                        .onAuthenticationSuccess(webFilterExchange, authentication))
+                .subscriberContext(ReactiveSecurityContextHolder.withSecurityContext(Mono.just(securityContext)));
     }
 }
