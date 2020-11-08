@@ -1,4 +1,4 @@
-package com.wheejuni.runtracker.infra.auth
+package com.wheejuni.runtracker.infra.auth.manager
 
 import com.wheejuni.runtracker.application.auth.UserinfoManagementService
 import org.springframework.security.authentication.ReactiveAuthenticationManager
