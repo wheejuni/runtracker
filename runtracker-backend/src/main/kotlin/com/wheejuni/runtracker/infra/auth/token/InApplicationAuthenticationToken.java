@@ -36,6 +36,7 @@ public class InApplicationAuthenticationToken extends AbstractAuthenticationToke
 
     public InApplicationAuthenticationToken(String tokenContent) {
         super(null);
+
         super.setAuthenticated(false);
 
         this.tokenContent = tokenContent;
@@ -51,7 +52,7 @@ public class InApplicationAuthenticationToken extends AbstractAuthenticationToke
         return userInfoObject;
     }
 
-    protected Mono<Authentication> authenticate(Set<? extends GrantedAuthority> authorities, Mono<User> userObject) {
+    public Mono<Authentication> authenticate(Set<? extends GrantedAuthority> authorities, Mono<User> userObject) {
         this.authorities = authorities;
         this.userInfoObject = userObject;
 
@@ -59,5 +60,4 @@ public class InApplicationAuthenticationToken extends AbstractAuthenticationToke
 
         return Mono.just(this);
     }
-
 }

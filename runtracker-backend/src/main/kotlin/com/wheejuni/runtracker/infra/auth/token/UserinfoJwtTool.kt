@@ -6,6 +6,7 @@ import com.auth0.jwt.impl.NullClaim
 import com.auth0.jwt.interfaces.Claim
 import com.wheejuni.runtracker.application.auth.UserinfoManagementService
 import com.wheejuni.runtracker.domain.User
+import org.springframework.security.core.Authentication
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.stereotype.Component
@@ -29,7 +30,7 @@ class UserinfoJwtTool(private val infoService: UserinfoManagementService) {
 
     }
 
-    fun fromJwt(jwt: String): Mono<InApplicationAuthenticationToken> {
+    fun fromJwt(jwt: String): Mono<Authentication> {
         val decoded = JWT.decode(jwt)
         val userId = decoded.claims["user_id"] ?: NullClaim()
         val userAuthorityClaim = decoded.claims["user_authority"] ?: NullClaim()

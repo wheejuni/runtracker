@@ -1,4 +1,4 @@
-package com.wheejuni.runtracker.application.auth.token;
+package com.wheejuni.runtracker.infra.auth.token;
 
 import com.wheejuni.runtracker.application.view.ApplicationLoginRequest;
 import com.wheejuni.runtracker.domain.UserInfoProvider;
