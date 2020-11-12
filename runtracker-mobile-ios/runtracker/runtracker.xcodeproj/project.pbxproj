@@ -16,6 +16,10 @@
 		5F28CD2D2557C9CA00B30D18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F28CD2B2557C9CA00B30D18 /* LaunchScreen.storyboard */; };
 		5F28CD382557C9CA00B30D18 /* runtrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F28CD372557C9CA00B30D18 /* runtrackerTests.swift */; };
 		5F28CD432557C9CA00B30D18 /* runtrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F28CD422557C9CA00B30D18 /* runtrackerUITests.swift */; };
+		5F28CD57255D042600B30D18 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F28CD56255D042600B30D18 /* Exercise.swift */; };
+		5F28CD59255D091F00B30D18 /* Checkpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F28CD58255D091F00B30D18 /* Checkpoint.swift */; };
+		5F28CD5C255D0BEB00B30D18 /* RunData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F28CD5B255D0BEB00B30D18 /* RunData.swift */; };
+		5F28CD5E255D0CE300B30D18 /* ExerciseMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F28CD5D255D0CE300B30D18 /* ExerciseMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		5F28CD3E2557C9CA00B30D18 /* runtrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = runtrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F28CD422557C9CA00B30D18 /* runtrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = runtrackerUITests.swift; sourceTree = "<group>"; };
 		5F28CD442557C9CA00B30D18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F28CD56255D042600B30D18 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		5F28CD58255D091F00B30D18 /* Checkpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkpoint.swift; sourceTree = "<group>"; };
+		5F28CD5B255D0BEB00B30D18 /* RunData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunData.swift; sourceTree = "<group>"; };
+		5F28CD5D255D0CE300B30D18 /* ExerciseMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,8 @@
 		5F28CD1C2557C9C500B30D18 /* runtracker */ = {
 			isa = PBXGroup;
 			children = (
+				5F28CD51255D03EA00B30D18 /* core */,
+				5F28CD50255D03DA00B30D18 /* views */,
 				5F28CD1D2557C9C500B30D18 /* AppDelegate.swift */,
 				5F28CD1F2557C9C500B30D18 /* SceneDelegate.swift */,
 				5F28CD242557C9C500B30D18 /* ContentView.swift */,
@@ -137,6 +147,40 @@
 				5F28CD442557C9CA00B30D18 /* Info.plist */,
 			);
 			path = runtrackerUITests;
+			sourceTree = "<group>";
+		};
+		5F28CD50255D03DA00B30D18 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				5F28CD5D255D0CE300B30D18 /* ExerciseMapView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		5F28CD51255D03EA00B30D18 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				5F28CD5A255D0BD700B30D18 /* viewmodel */,
+				5F28CD52255D03F500B30D18 /* data */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		5F28CD52255D03F500B30D18 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				5F28CD56255D042600B30D18 /* Exercise.swift */,
+				5F28CD58255D091F00B30D18 /* Checkpoint.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		5F28CD5A255D0BD700B30D18 /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				5F28CD5B255D0BEB00B30D18 /* RunData.swift */,
+			);
+			path = viewmodel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,10 +314,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F28CD57255D042600B30D18 /* Exercise.swift in Sources */,
+				5F28CD5E255D0CE300B30D18 /* ExerciseMapView.swift in Sources */,
+				5F28CD5C255D0BEB00B30D18 /* RunData.swift in Sources */,
 				5F28CD1E2557C9C500B30D18 /* AppDelegate.swift in Sources */,
 				5F28CD232557C9C500B30D18 /* runtracker.xcdatamodeld in Sources */,
 				5F28CD252557C9C500B30D18 /* ContentView.swift in Sources */,
 				5F28CD202557C9C500B30D18 /* SceneDelegate.swift in Sources */,
+				5F28CD59255D091F00B30D18 /* Checkpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

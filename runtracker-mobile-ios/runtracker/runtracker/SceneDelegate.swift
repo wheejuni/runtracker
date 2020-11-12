@@ -69,3 +69,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+
+struct SceneDelegate_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")
+            .font(.headline)
+            .fontWeight(.ultraLight)
+            .foregroundColor(Color.red)
+            .multilineTextAlignment(.center)/*@END_MENU_TOKEN@*/
+    }
+}
