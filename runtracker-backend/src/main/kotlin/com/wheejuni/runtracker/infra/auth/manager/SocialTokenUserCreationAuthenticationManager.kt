@@ -5,7 +5,6 @@ import org.springframework.security.core.Authentication
 import org.springframework.stereotype.Component
 import reactor.core.publisher.Mono
 
-@Component
 class SocialTokenUserCreationAuthenticationManager: ReactiveAuthenticationManager {
 
     override fun authenticate(authentication: Authentication?): Mono<Authentication> {
