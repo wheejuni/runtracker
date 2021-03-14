@@ -1,1 +1,2 @@
-rootProject.name = "runtracker"
+rootProject.name = "runtracker-backend"
+
