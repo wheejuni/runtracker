@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Import
  *  2021/03/19
  */
 @Configuration
+//@Import(DataJpaConfiguration::class)
 class DataConfiguration {
 
 }
