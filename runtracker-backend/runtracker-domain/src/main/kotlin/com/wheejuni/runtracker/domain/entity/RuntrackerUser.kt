@@ -9,7 +9,7 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 
 /**
- *  Created by quo.barlow@kakaocorp.com(정휘준)
+ *  Bomeehouse studios (me@wheejuni.com)
  *  2021/03/14
  */
 @Entity

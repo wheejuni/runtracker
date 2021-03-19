@@ -55,6 +55,7 @@ subprojects {
         implementation("org.springframework.vault:spring-vault-core:2.1.3.RELEASE")
         implementation("org.springframework.kafka:spring-kafka")
         implementation("org.springdoc:springdoc-openapi-ui:1.4.3")
+        implementation("com.auth0:java-jwt:3.3.0")
         testImplementation("org.springframework.kafka:spring-kafka-test")
         testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
         testImplementation("org.springframework.boot:spring-boot-starter-test") {

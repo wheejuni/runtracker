@@ -4,7 +4,7 @@ import com.wheejuni.runtracker.domain.application.model.auth.SocialProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 /**
- * Created by quo.barlow@kakaocorp.com(정휘준)
+ * Bomeehouse studios (me@wheejuni.com)
  * 2021/03/14
  */
 public abstract class SocialProviderLoginAuthenticationToken extends UsernamePasswordAuthenticationToken {

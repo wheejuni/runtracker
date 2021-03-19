@@ -4,7 +4,7 @@ import com.wheejuni.runtracker.domain.application.model.auth.SocialProvider
 import com.wheejuni.runtracker.domain.application.model.auth.SocialUserInfo
 
 /**
- *  Created by quo.barlow@kakaocorp.com(정휘준)
+ *  Bomeehouse studios (me@wheejuni.com)
  *  2021/03/14
  */
 class KakaoUserInfo(

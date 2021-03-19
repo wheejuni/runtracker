@@ -4,6 +4,7 @@ import com.wheejuni.runtracker.domain.application.infra.security.tokens.Runtrack
 import com.wheejuni.runtracker.domain.application.infra.security.tokens.SocialProviderLoginAuthenticationToken
 import com.wheejuni.runtracker.domain.application.model.auth.SocialProvider
 import com.wheejuni.runtracker.domain.entity.repository.RuntrackerUserRepository
+import com.wheejuni.runtracker.domain.exception.ServerSecurityException
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.crypto.password.PasswordEncoder
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service
 import reactor.core.publisher.Mono
 
 /**
- *  Created by quo.barlow@kakaocorp.com(정휘준)
+ *  Bomeehouse studios (me@wheejuni.com)
  *  2021/03/14
  */
 @Service
@@ -35,4 +36,13 @@ class RuntrackerUserService(
         }.flatMap { user -> Mono.just(RuntrackerUserToken(user, listOf(SimpleGrantedAuthority("USER")))) }
     }
 
+    fun getUserInfoByUserId(id: Long): Mono<RuntrackerUserToken>? {
+        return Mono.just(id)
+            .map repositorySearch@{
+                return@repositorySearch repository.findByRuntrackerUserId(it) ?:
+                    throw ServerSecurityException("userid에 맞는 사용자 없음")
+            }
+            .map { RuntrackerUserToken(it, listOf(SimpleGrantedAuthority("USER"))) }
+            .onErrorContinue { _, _ -> null }
+    }
 }
