@@ -4,7 +4,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 
 /**
- *  Created by quo.barlow@kakaocorp.com(정휘준)
+ *  Bomeehouse studios (me@wheejuni.com)
  *  2021/03/19
  */
 @EntityScan(basePackages = ["com.wheejuni.runtracker.domain.entity"])

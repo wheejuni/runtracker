@@ -56,12 +56,12 @@ subprojects {
         implementation("org.springframework.kafka:spring-kafka")
         implementation("org.springdoc:springdoc-openapi-ui:1.4.3")
         implementation("com.auth0:java-jwt:3.3.0")
+        implementation("com.h2database:h2")
         testImplementation("org.springframework.kafka:spring-kafka-test")
         testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
         testImplementation("org.springframework.boot:spring-boot-starter-test") {
             exclude(module = "junit")
         }
-        testImplementation("com.h2database:h2")
         testImplementation("org.jetbrains.kotlin:kotlin-test")
         testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
         testImplementation("io.kotlintest:kotlintest-runner-junit5:3.3.3")
