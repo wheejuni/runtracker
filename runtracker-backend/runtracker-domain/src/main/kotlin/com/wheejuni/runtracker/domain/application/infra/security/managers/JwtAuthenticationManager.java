@@ -1,11 +1,9 @@
 package com.wheejuni.runtracker.domain.application.infra.security.managers;
 
 import com.auth0.jwt.JWT;
-import com.auth0.jwt.interfaces.DecodedJWT;
 import com.wheejuni.runtracker.domain.application.infra.security.tokens.RuntrackerUserToken;
 import com.wheejuni.runtracker.domain.application.infra.security.tokens.preauthorize.JwtAuthenticationToken;
 import com.wheejuni.runtracker.domain.application.service.RuntrackerUserService;
-import com.wheejuni.runtracker.domain.exception.ServerSecurityException;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.core.Authentication;
 import reactor.core.publisher.Mono;
