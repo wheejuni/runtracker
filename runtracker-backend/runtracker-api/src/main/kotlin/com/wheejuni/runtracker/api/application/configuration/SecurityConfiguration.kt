@@ -58,6 +58,7 @@ class SecurityConfiguration {
     @Bean
     fun securityConfigurationChain(http: ServerHttpSecurity): SecurityWebFilterChain =
         http
+            .csrf().disable()
             .authorizeExchange()
             .anyExchange()
             .permitAll()

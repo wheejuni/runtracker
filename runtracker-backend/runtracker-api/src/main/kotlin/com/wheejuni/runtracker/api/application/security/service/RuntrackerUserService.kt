@@ -21,9 +21,9 @@ class RuntrackerUserService(
 ) {
 
     fun getUserInfoForSocialLogin(token: SocialProviderLoginAuthenticationToken): Mono<RuntrackerUserToken> {
-        return repository.findBySocialProviderIdAndSocialProviderType(
+        return repository.findBySocialProviderIdAndAuthProviderType(
             socialProviderId = token.credentials,
-            socialProviderType = token.requestedAuthenticationProvider
+            authProviderType = token.requestedAuthenticationProvider
         ).flatMap {
             return@flatMap Mono.just(RuntrackerUserToken(it, listOf(SimpleGrantedAuthority("USER"))))
         }

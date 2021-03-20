@@ -1,0 +1,7 @@
+POST http://localhost:8080/formlogin
+Content-Type: application/json
+
+{
+    "id" : "bomeehouse",
+    "password" : "bomee123"
+}

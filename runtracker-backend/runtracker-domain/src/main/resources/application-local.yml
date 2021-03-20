@@ -1,8 +1,13 @@
 logging:
-  level: debug
-
+  level:
+    org:
+      spring:
+        framework:
+          r2dbc: debug
 spring:
-  security:
-    user:
-      name: admin
-      password: 1234
+  datasource:
+    initialization-mode: always
+  h2:
+    console:
+      enabled: true
+

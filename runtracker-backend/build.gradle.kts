@@ -55,6 +55,7 @@ subprojects {
         implementation("com.auth0:java-jwt:3.3.0")
         implementation("com.h2database:h2")
         implementation("io.r2dbc:r2dbc-h2:0.8.4.RELEASE")
+        implementation("dev.miku:r2dbc-mysql:0.8.2.RELEASE")
         testImplementation("org.springframework.kafka:spring-kafka-test")
         testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
         testImplementation("org.springframework.boot:spring-boot-starter-test") {

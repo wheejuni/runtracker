@@ -11,5 +11,5 @@ data class LoginRequest(
 
 data class SocialLoginRequest(
     val authUserId: String,
-    val provider: SocialProvider
+    val provider: AuthProvider
 )

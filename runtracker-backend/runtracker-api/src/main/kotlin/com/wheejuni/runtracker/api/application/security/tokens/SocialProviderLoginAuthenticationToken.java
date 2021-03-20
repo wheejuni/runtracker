@@ -1,6 +1,6 @@
 package com.wheejuni.runtracker.api.application.security.tokens;
 
-import com.wheejuni.runtracker.domain.application.model.auth.SocialProvider;
+import com.wheejuni.runtracker.domain.application.model.auth.AuthProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 /**
@@ -29,5 +29,5 @@ public abstract class SocialProviderLoginAuthenticationToken extends UsernamePas
         return this.token;
     }
 
-    abstract public SocialProvider getRequestedAuthenticationProvider();
+    abstract public AuthProvider getRequestedAuthenticationProvider();
 }

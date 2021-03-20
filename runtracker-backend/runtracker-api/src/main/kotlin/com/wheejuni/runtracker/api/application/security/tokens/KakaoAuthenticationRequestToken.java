@@ -1,6 +1,6 @@
 package com.wheejuni.runtracker.api.application.security.tokens;
 
-import com.wheejuni.runtracker.domain.application.model.auth.SocialProvider;
+import com.wheejuni.runtracker.domain.application.model.auth.AuthProvider;
 
 public class KakaoAuthenticationRequestToken extends SocialProviderLoginAuthenticationToken {
 
@@ -9,7 +9,7 @@ public class KakaoAuthenticationRequestToken extends SocialProviderLoginAuthenti
     }
 
     @Override
-    public SocialProvider getRequestedAuthenticationProvider() {
-        return SocialProvider.KAKAO;
+    public AuthProvider getRequestedAuthenticationProvider() {
+        return AuthProvider.KAKAO;
     }
 }

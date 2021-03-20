@@ -1,6 +1,6 @@
 package com.wheejuni.runtracker.domain.application.model.auth.kakao
 
-import com.wheejuni.runtracker.domain.application.model.auth.SocialProvider
+import com.wheejuni.runtracker.domain.application.model.auth.AuthProvider
 import com.wheejuni.runtracker.domain.application.model.auth.SocialUserInfo
 
 /**
@@ -19,5 +19,5 @@ class KakaoUserInfo(
 
     override fun getProviderUserId(): String = this.id.toString()
 
-    override fun getProviderType(): SocialProvider = SocialProvider.KAKAO
+    override fun getProviderType(): AuthProvider = AuthProvider.KAKAO
 }

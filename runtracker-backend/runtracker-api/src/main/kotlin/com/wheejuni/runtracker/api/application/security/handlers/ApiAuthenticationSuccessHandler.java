@@ -39,12 +39,9 @@ public class ApiAuthenticationSuccessHandler implements ServerAuthenticationSucc
         String token = null;
 
         try {
-            Map<String, Object> claims = new HashMap<>();
-            claims.put("userid", String.valueOf(authenticatedToken.getPrincipal().getRuntrackerUserId()));
-
             Algorithm alg = Algorithm.HMAC256("secret");
 
-            token = JWT.create().withHeader(claims).sign(alg);
+            token = JWT.create().withClaim("userid", authenticatedToken.getPrincipal().getRuntrackerUserId()).sign(alg);
         } catch (Exception e) {
             log.error(e.getMessage());
         }
@@ -53,9 +50,9 @@ public class ApiAuthenticationSuccessHandler implements ServerAuthenticationSucc
         ServerHttpResponse response = webFilterExchange.getExchange().getResponse();
 
         response.setStatusCode(HttpStatus.OK);
-        generateResponseBody(response, result);
+        Mono<DataBuffer> bufferMono = generateResponseBody(response, result);
 
-        return Mono.empty();
+        return response.writeWith(bufferMono).then();
     }
 
     private Mono<DataBuffer> generateResponseBody(ServerHttpResponse response, LoginResult result) {

@@ -1,0 +1,1 @@
+CREATE TABLE runtracker_user(runtracker_user_id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL , username VARCHAR(256) NOT NULL , encrypted_password VARCHAR(256) NULL , social_provider_id VARCHAR(256) NULL , auth_provider_type VARCHAR(256) NULL , nickname VARCHAR(128) NOT NULL)

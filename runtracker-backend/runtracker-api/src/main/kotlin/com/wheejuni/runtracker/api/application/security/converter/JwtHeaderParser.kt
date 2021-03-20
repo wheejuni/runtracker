@@ -23,6 +23,6 @@ class JwtHeaderParser: ServerAuthenticationConverter {
         val authHeader = safeExchange.request.headers["Authorization"]
             ?: listOf("")
 
-        return Mono.just(JwtAuthenticationToken(authHeader.first()))
+        return Mono.just(JwtAuthenticationToken(authHeader.first().split(AUTHENTICATION_HEADER_PREFIX)[1]))
     }
 }
