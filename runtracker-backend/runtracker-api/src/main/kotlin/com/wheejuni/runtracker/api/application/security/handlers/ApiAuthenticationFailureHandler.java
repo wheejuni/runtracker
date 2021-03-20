@@ -1,4 +1,4 @@
-package com.wheejuni.runtracker.domain.application.infra.security.handlers;
+package com.wheejuni.runtracker.api.application.security.handlers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;

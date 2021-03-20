@@ -1,4 +1,4 @@
-package com.wheejuni.runtracker.domain.application.infra.security.tokens.preauthorize;
+package com.wheejuni.runtracker.api.application.security.tokens.preauthorize;
 
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 
@@ -19,5 +19,9 @@ public class JwtAuthenticationToken extends AbstractAuthenticationToken {
     @Override
     public Object getPrincipal() {
         return null;
+    }
+
+    public boolean isAuthenticationEligible() {
+        return !this.jwt.isEmpty();
     }
 }

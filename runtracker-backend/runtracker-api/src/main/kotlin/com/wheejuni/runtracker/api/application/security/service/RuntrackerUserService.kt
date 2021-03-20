@@ -1,8 +1,7 @@
-package com.wheejuni.runtracker.domain.application.service
+package com.wheejuni.runtracker.api.application.security.service
 
-import com.wheejuni.runtracker.domain.application.infra.security.tokens.RuntrackerUserToken
-import com.wheejuni.runtracker.domain.application.infra.security.tokens.SocialProviderLoginAuthenticationToken
-import com.wheejuni.runtracker.domain.application.model.auth.SocialProvider
+import com.wheejuni.runtracker.api.application.security.tokens.RuntrackerUserToken
+import com.wheejuni.runtracker.api.application.security.tokens.SocialProviderLoginAuthenticationToken
 import com.wheejuni.runtracker.domain.entity.repository.RuntrackerUserRepository
 import com.wheejuni.runtracker.domain.exception.ServerSecurityException
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken

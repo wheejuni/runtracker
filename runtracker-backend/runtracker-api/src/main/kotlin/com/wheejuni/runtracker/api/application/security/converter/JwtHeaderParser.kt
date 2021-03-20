@@ -1,7 +1,6 @@
-package com.wheejuni.runtracker.domain.application.infra.security.converter
+package com.wheejuni.runtracker.api.application.security.converter
 
-import com.auth0.jwt.JWT
-import com.wheejuni.runtracker.domain.application.infra.security.tokens.preauthorize.JwtAuthenticationToken
+import com.wheejuni.runtracker.api.application.security.tokens.preauthorize.JwtAuthenticationToken
 import com.wheejuni.runtracker.domain.exception.ServerSecurityException
 import org.springframework.security.core.Authentication
 import org.springframework.security.web.server.authentication.ServerAuthenticationConverter
@@ -22,7 +21,7 @@ class JwtHeaderParser: ServerAuthenticationConverter {
     override fun convert(exchange: ServerWebExchange?): Mono<Authentication> {
         val safeExchange = exchange ?: throw IllegalArgumentException("NO REQUEST PROVIDED")
         val authHeader = safeExchange.request.headers["Authorization"]
-            ?: throw ServerSecurityException("Authorization header가 없음")
+            ?: listOf("")
 
         return Mono.just(JwtAuthenticationToken(authHeader.first()))
     }

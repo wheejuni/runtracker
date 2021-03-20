@@ -1,0 +1,8 @@
+logging:
+  level: debug
+
+spring:
+  security:
+    user:
+      name: admin
+      password: 1234

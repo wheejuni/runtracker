@@ -1,10 +1,10 @@
-package com.wheejuni.runtracker.domain.application.infra.security.handlers;
+package com.wheejuni.runtracker.api.application.security.handlers;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wheejuni.runtracker.domain.application.infra.security.tokens.RuntrackerUserToken;
+import com.wheejuni.runtracker.api.application.security.tokens.RuntrackerUserToken;
 import com.wheejuni.runtracker.domain.application.model.auth.LoginResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +14,6 @@ import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.server.WebFilterExchange;
 import org.springframework.security.web.server.authentication.ServerAuthenticationSuccessHandler;
-import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.wheejuni.runtracker.domain.application.infra.security.password
+package com.wheejuni.runtracker.api.application.security.password
 
 /**
  *  Bomeehouse studios (me@wheejuni.com)

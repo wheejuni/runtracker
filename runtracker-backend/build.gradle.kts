@@ -7,7 +7,7 @@ plugins {
     kotlin("jvm") version "1.3.31"
     kotlin("plugin.spring") version "1.3.31"
 
-    id("org.springframework.boot") version "2.1.6.RELEASE"
+    id("org.springframework.boot") version "2.4.4"
     id("io.spring.dependency-management") version "1.0.7.RELEASE"
     id("com.google.cloud.tools.jib") version "0.10.0"
     id("org.asciidoctor.convert") version "1.5.8"
@@ -39,15 +39,14 @@ subprojects {
     }
 
     dependencies {
-        implementation("org.springframework.boot:spring-boot-starter-security")
         implementation("org.springframework.boot:spring-boot-starter-webflux")
+        implementation("org.springframework.boot:spring-boot-starter-data-r2dbc:2.4.4")
         implementation("org.apache.httpcomponents:httpclient")
         implementation("mysql:mysql-connector-java")
         implementation("org.jetbrains.kotlin:kotlin-reflect")
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
         implementation("net.logstash.logback:logstash-logback-encoder:5.2")
         implementation("org.jetbrains.kotlin:kotlin-noarg:${kotlinVersion}")
-        implementation("org.springframework.boot:spring-boot-starter-data-jpa")
         implementation("io.github.microutils:kotlin-logging:1.7.6")
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
         implementation("com.getsentry.raven:raven-logback:8.0.3")
@@ -55,6 +54,7 @@ subprojects {
         implementation("org.springframework.kafka:spring-kafka")
         implementation("com.auth0:java-jwt:3.3.0")
         implementation("com.h2database:h2")
+        implementation("io.r2dbc:r2dbc-h2:0.8.4.RELEASE")
         testImplementation("org.springframework.kafka:spring-kafka-test")
         testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
         testImplementation("org.springframework.boot:spring-boot-starter-test") {

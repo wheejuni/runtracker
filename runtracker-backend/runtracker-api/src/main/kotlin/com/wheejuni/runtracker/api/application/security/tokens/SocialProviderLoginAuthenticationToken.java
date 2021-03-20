@@ -1,4 +1,4 @@
-package com.wheejuni.runtracker.domain.application.infra.security.tokens;
+package com.wheejuni.runtracker.api.application.security.tokens;
 
 import com.wheejuni.runtracker.domain.application.model.auth.SocialProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

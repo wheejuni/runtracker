@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/runtracker-domain/com.wheejuni.runtracker-backend.runtracker-domain.main.iml" filepath="$PROJECT_DIR$/.idea/modules/runtracker-domain/com.wheejuni.runtracker-backend.runtracker-domain.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/runtracker-domain/com.wheejuni.runtracker-backend.runtracker-domain.test.iml" filepath="$PROJECT_DIR$/.idea/modules/runtracker-domain/com.wheejuni.runtracker-backend.runtracker-domain.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/runtracker-backend.iml" filepath="$PROJECT_DIR$/.idea/modules/runtracker-backend.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/runtracker-backend.main.iml" filepath="$PROJECT_DIR$/.idea/modules/runtracker-backend.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/runtracker-api/runtracker-backend.runtracker-api.iml" filepath="$PROJECT_DIR$/.idea/modules/runtracker-api/runtracker-backend.runtracker-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/runtracker-api/runtracker-backend.runtracker-api.main.iml" filepath="$PROJECT_DIR$/.idea/modules/runtracker-api/runtracker-backend.runtracker-api.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/runtracker-api/runtracker-backend.runtracker-api.test.iml" filepath="$PROJECT_DIR$/.idea/modules/runtracker-api/runtracker-backend.runtracker-api.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/runtracker-domain/runtracker-backend.runtracker-domain.iml" filepath="$PROJECT_DIR$/.idea/modules/runtracker-domain/runtracker-backend.runtracker-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/runtracker-domain/runtracker-backend.runtracker-domain.main.iml" filepath="$PROJECT_DIR$/.idea/modules/runtracker-domain/runtracker-backend.runtracker-domain.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/runtracker-domain/runtracker-backend.runtracker-domain.test.iml" filepath="$PROJECT_DIR$/.idea/modules/runtracker-domain/runtracker-backend.runtracker-domain.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/runtracker-backend.test.iml" filepath="$PROJECT_DIR$/.idea/modules/runtracker-backend.test.iml" />
     </modules>
   </component>
