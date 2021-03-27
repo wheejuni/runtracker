@@ -4,7 +4,7 @@ import org.springframework.data.annotation.Id
 import java.time.LocalDateTime
 
 /**
- *  Created by quo.barlow@kakaocorp.com(정휘준)
+ *  Bomeehouse studios (me@wheejuni.com)(정휘준)
  *  2021/03/27
  */
 data class Journey(
