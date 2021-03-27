@@ -1,1 +1,3 @@
-CREATE TABLE runtracker_user(runtracker_user_id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL , username VARCHAR(256) NOT NULL , encrypted_password VARCHAR(256) NULL , social_provider_id VARCHAR(256) NULL , auth_provider_type VARCHAR(256) NULL , nickname VARCHAR(128) NOT NULL)
+CREATE TABLE runtracker_user(runtracker_user_id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL , username VARCHAR(256) NOT NULL , encrypted_password VARCHAR(256) NULL , social_provider_id VARCHAR(256) NULL , auth_provider_type VARCHAR(256) NULL , nickname VARCHAR(128) NOT NULL);
+CREATE TABLE journey(journey_id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL, started TIMESTAMP NOT NULL , ended TIMESTAMP NOT NULL, length DOUBLE NOT NULL);
+CREATE TABLE waypoint(waypoint_id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL , journey_id BIGINT REFERENCES journey NOT NULL, latitude DOUBLE NOT NULL , longitude DOUBLE NOT NULL);
